@@ -15,7 +15,7 @@ const PastOrders = () => {
         if (!token) throw new Error('No authorization token found');
 
         const response = await axios.get(
-          'http://localhost:8080/foodcart/pastorders',
+          'https://mall-munch-backend.onrender.com/foodcart/pastorders',
           {
             headers: { Authorization: `Bearer ${token}` }
           }

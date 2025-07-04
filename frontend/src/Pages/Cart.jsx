@@ -131,7 +131,7 @@ const Cart = () => {
       throw new Error('Please login to place an order');
     }
 
-    const response = await fetch('http://localhost:8080/mall/placeOrder', {
+    const response = await fetch('https://mall-munch-backend.onrender.com/mall/placeOrder', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

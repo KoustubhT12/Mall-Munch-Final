@@ -126,7 +126,7 @@ const Register = () => {
         password: formData.password
       };
 
-      const response = await axios.post('http://localhost:8080/user/register', user, {
+      const response = await axios.post('https://mall-munch-backend.onrender.com/user/register', user, {
         headers: {
           'Content-Type': 'application/json'
         }

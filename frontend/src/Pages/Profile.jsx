@@ -49,7 +49,7 @@ const Profile = () => {
           return;
         }
 
-        const response = await axios.get('http://localhost:8080/user/profile', {
+        const response = await axios.get('https://mall-munch-backend.onrender.com/user/profile', {
           headers: {
             'Authorization': `Bearer ${token}`,
             'Content-Type': 'application/json'
@@ -140,7 +140,7 @@ const Profile = () => {
       }
 
       const response = await axios.post(
-        'http://localhost:8080/user/changer', 
+        'https://mall-munch-backend.onrender.com/user/changer', 
         {
           username: userData.username,
           email: userData.email,
@@ -195,7 +195,7 @@ const Profile = () => {
       );
 
       const backendResponse = await axios.post(
-        'http://localhost:8080/user/updatepic',
+        'https://mall-munch-backend.onrender.com/user/updatepic',
         { 
           profilePic: cloudinaryResponse.data.secure_url,
           oldProfilePic: userData.profilePic

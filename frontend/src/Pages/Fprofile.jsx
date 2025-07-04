@@ -28,7 +28,7 @@ const Fprofile = () => {
         return;
       }
 
-      const response = await axios.get('http://localhost:8080/foodcart/profile', {
+      const response = await axios.get('https://mall-munch-backend.onrender.com/foodcart/profile', {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -110,7 +110,7 @@ const Fprofile = () => {
       }
 
       const response = await axios.put(
-        'http://localhost:8080/foodcart/update-profile',
+        'https://mall-munch-backend.onrender.com/foodcart/update-profile',
         {
           name: foodcartData.name,
           username: foodcartData.username,
@@ -178,7 +178,7 @@ const Fprofile = () => {
         if (oldPublicId) {
           try {
             await axios.post(
-              'http://localhost:8080/foodcart/deleteimage',
+              'https://mall-munch-backend.onrender.com/foodcart/deleteimage',
               { publicId: oldPublicId },
               {
                 headers: {
@@ -206,7 +206,7 @@ const Fprofile = () => {
 
       // 3. Update backend with new image URL
       await axios.put(
-        'http://localhost:8080/foodcart/update-image',
+        'https://mall-munch-backend.onrender.com/foodcart/update-image',
         { image: cloudinaryResponse.data.secure_url },
         {
           headers: {

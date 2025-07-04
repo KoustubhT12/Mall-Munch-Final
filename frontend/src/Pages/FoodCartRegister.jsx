@@ -121,7 +121,7 @@ const FoodCartRegister = () => {
         password: formData.password
       };
 
-      const response = await axios.post('http://localhost:8080/foodcart/register', foodCart, {
+      const response = await axios.post('https://mall-munch-backend.onrender.com/foodcart/register', foodCart, {
         headers: {
           'Content-Type': 'application/json'
         }

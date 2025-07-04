@@ -25,7 +25,7 @@ const Orders = () => {
         return;
       }
 
-      const response = await axios.get('http://localhost:8080/user/orders', {
+      const response = await axios.get('https://mall-munch-backend.onrender.com/user/orders', {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -51,7 +51,7 @@ const handleRateOrder = async (orderId, rating) => {
     console.log('Submitting rating for order:', orderId, 'Rating:', rating);
     
     const response = await axios.post(
-      `http://localhost:8080/user/${orderId}/rate`,
+      `https://mall-munch-backend.onrender.com/user/${orderId}/rate`,
       { rating },
       {
         headers: {

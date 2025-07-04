@@ -35,7 +35,7 @@ const AddFood = () => {
         return;
       }
 
-      const response = await axios.get('http://localhost:8080/foodcart/additem', {
+      const response = await axios.get('https://mall-munch-backend.onrender.com/foodcart/additem', {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -98,7 +98,7 @@ const AddFood = () => {
       }
 
       await axios.post(
-        'http://localhost:8080/foodcart/item-edit',
+        'https://mall-munch-backend.onrender.com/foodcart/item-edit',
         {
           id: editingItem,
           name: editForm.name,
@@ -145,7 +145,7 @@ const AddFood = () => {
       }
 
       await axios.post(
-        'http://localhost:8080/foodcart/newitem',
+        'https://mall-munch-backend.onrender.com/foodcart/newitem',
         {
           name: addForm.name,
           price: addForm.price,
@@ -189,7 +189,7 @@ const AddFood = () => {
         return;
       }
 
-      await axios.delete(`http://localhost:8080/foodcart/items/${itemId}`, {
+      await axios.delete(`https://mall-munch-backend.onrender.com/foodcart/items/${itemId}`, {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'

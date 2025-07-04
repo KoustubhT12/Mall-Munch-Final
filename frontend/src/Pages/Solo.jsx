@@ -26,7 +26,7 @@ const Solo = () => {
           return;
         }
 
-        const response = await axios.get(`http://localhost:8080/mall/foodcarts/${id}/items`, {
+        const response = await axios.get(`https://mall-munch-backend.onrender.com/mall/foodcarts/${id}/items`, {
           headers: {
             'Authorization': `Bearer ${token}`,
             'Content-Type': 'application/json'

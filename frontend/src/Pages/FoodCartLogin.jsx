@@ -82,7 +82,7 @@ const FoodCartLogin = () => {
     setIsLoading(true);
 
     try {
-      const response = await axios.post('http://localhost:8080/foodcart/login', formData, {
+      const response = await axios.post('https://mall-munch-backend.onrender.com/foodcart/login', formData, {
         headers: {
           'Content-Type': 'application/json'
         }

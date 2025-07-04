@@ -48,7 +48,7 @@ const Foodcarts = () => {
           return;
         }
 
-        const response = await axios.get('http://localhost:8080/mall/foodcarts', {
+        const response = await axios.get('https://mall-munch-backend.onrender.com/mall/foodcarts', {
           headers: {
             'Authorization': `Bearer ${token}`,
             'Content-Type': 'application/json'

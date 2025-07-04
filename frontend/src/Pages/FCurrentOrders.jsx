@@ -21,7 +21,7 @@ const FCurrentOrders = () => {
         const token = localStorage.getItem('authorization');
         if (!token) throw new Error('Please login to view orders');
 
-        const response = await axios.get('http://localhost:8080/foodcart/getcurrentorders', {
+        const response = await axios.get('https://mall-munch-backend.onrender.com/foodcart/getcurrentorders', {
           headers: { Authorization: `Bearer ${token}` }
         });
 
@@ -51,7 +51,7 @@ const FCurrentOrders = () => {
       ));
 
       await axios.put(
-        `http://localhost:8080/foodcart/updateorderstatus/${orderId}`,
+        `https://mall-munch-backend.onrender.com/foodcart/updateorderstatus/${orderId}`,
         { status: newStatus },
         { headers: { Authorization: `Bearer ${token}` } }
       );
