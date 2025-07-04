@@ -6,5 +6,5 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
   plugins: [  tailwindcss(),
     react()],
-    base: process.env.VITE_BASE_URL || '/Mall-Munch-Final/frontend/',
+    base: process.env.VITE_BASE_URL || '/Mall-Munch-Final',
 })
