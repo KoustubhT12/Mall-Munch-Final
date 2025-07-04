@@ -1,0 +1,198 @@
+/* Main Container Styles */
+.register-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f97316, #fb923c);
+  padding: 0.5rem;
+}
+
+/* Form Container Styles */
+.register-form-container {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 24rem;
+  margin: 0.5rem;
+}
+
+/* Header Styles */
+.register-header {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.register-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #27272a;
+  margin-bottom: 0.25rem;
+}
+
+.register-subtitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #27272a;
+  margin-bottom: 1rem;
+}
+
+/* Form Group Styles */
+.form-group {
+  margin-bottom: 0.5rem;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #3f3f46;
+  margin-bottom: 0.1rem;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.4rem 0.6rem;
+  font-size: 0.8rem;
+  color: #3f3f46;
+  border: 1px solid #d4d4d8;
+  border-radius: 0.25rem;
+  margin-top: 0.1rem;
+  transition: all 0.2s;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #f97316;
+  box-shadow: 0 0 0 2px rgba(249, 115, 22, 0.2);
+}
+
+.form-input-error {
+  border-color: #ef4444;
+}
+
+.error-message {
+  margin-top: 0.1rem;
+  font-size: 0.65rem;
+  color: #ef4444;
+  min-height: 0.8rem;
+}
+
+/* Button Styles */
+.submit-button {
+  width: 100%;
+  background-color: #f97316;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 0.5rem;
+}
+
+.submit-button:hover {
+  background-color: #ea580c;
+}
+
+.submit-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(249, 115, 22, 0.3);
+}
+
+.submit-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Footer Link Styles */
+.register-footer {
+  font-size: 0.7rem;
+  color: #52525b;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+.register-link {
+  color: #f97316;
+  text-decoration: none;
+}
+
+.register-link:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Adjustments */
+@media (min-width: 400px) {
+  .register-form-container {
+    padding: 1.25rem;
+  }
+  
+  .register-title {
+    font-size: 1.4rem;
+  }
+  
+  .register-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .form-label {
+    font-size: 0.8rem;
+  }
+  
+  .form-input {
+    font-size: 0.85rem;
+  }
+  
+  .submit-button {
+    font-size: 0.85rem;
+  }
+  
+  .register-footer {
+    font-size: 0.75rem;
+  }
+}
+
+/* ... (keep all previous styles) ... */
+
+/* Password Input Container */
+.password-input-container {
+  position: relative;
+  width: 100%;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #6b7280;
+  padding: 0.2rem;
+}
+
+.password-toggle:hover {
+  color: #4b5563;
+}
+
+.password-toggle:focus {
+  outline: none;
+  color: #f97316;
+}
+
+/* Adjust input padding to accommodate toggle button */
+.password-input {
+  padding-right: 2rem !important;
+}
+
+/* Eye icon styling */
+.password-toggle svg {
+  width: 1rem;
+  height: 1rem;
+}

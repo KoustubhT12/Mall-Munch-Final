@@ -1,0 +1,359 @@
+.solo-foodcart {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+.solo-loading,
+.solo-error,
+.solo-no-items {
+  text-align: center;
+  padding: 40px;
+  font-size: 1.2rem;
+}
+
+.solo-error {
+  color: #d32f2f;
+}
+
+.solo-filters-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.solo-search-bar {
+  display: flex;
+  flex-grow: 1;
+  max-width: 400px;
+}
+
+.solo-search-bar input {
+  flex-grow: 1;
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px 0 0 4px;
+  font-size: 1rem;
+}
+
+.solo-search-button {
+  padding: 10px 15px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+}
+
+.solo-search-button:hover {
+  background-color: #45a049;
+}
+
+.solo-veg-filter {
+  display: flex;
+  gap: 10px;
+}
+
+.solo-filter-btn {
+  padding: 8px 16px;
+  border: 1px solid #ddd;
+  background-color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.solo-filter-btn.active {
+  background-color: #4CAF50;
+  color: white;
+  border-color: #4CAF50;
+}
+
+.solo-items-count {
+  margin-bottom: 20px;
+  color: #666;
+  font-style: italic;
+}
+
+.solo-food-items {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.solo-food-item {
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  transition: transform 0.2s;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.solo-food-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.solo-food-item.veg {
+  border-left: 4px solid #4CAF50;
+}
+
+.solo-food-item.nonveg {
+  border-left: 4px solid #f44336;
+}
+
+.solo-item-info {
+  flex-grow: 1;
+}
+
+.solo-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.solo-item-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.solo-veg-indicator {
+  font-size: 0.8rem;
+  padding: 3px 8px;
+  border-radius: 12px;
+}
+
+.solo-veg-indicator.veg {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.solo-veg-indicator.nonveg {
+  background-color: #ffebee;
+  color: #c62828;
+}
+
+.solo-item-description {
+  margin: 8px 0;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.solo-price {
+  font-weight: bold;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.solo-add-to-cart {
+  align-self: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.solo-add-to-cart:hover {
+  background-color: #388e3c;
+  transform: scale(1.1);
+}
+
+/* Rating styles */
+.item-rating {
+  margin: 8px 0;
+  display: flex;
+  align-items: center;
+}
+
+.star {
+  font-size: 1.2rem;
+  color: #ddd;
+  position: relative;
+  margin-right: 2px;
+}
+
+.star.full {
+  color: #ffc107;
+}
+
+.star.half {
+  color: #ddd;
+}
+
+.star.half::before {
+  content: '★';
+  position: absolute;
+  left: 0;
+  width: 50%;
+  overflow: hidden;
+  color: #ffc107;
+}
+
+.rating-value {
+  margin-left: 5px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  .solo-filters-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .solo-search-bar {
+    max-width: 100%;
+  }
+  
+  .solo-veg-filter {
+    justify-content: center;
+  }
+  
+  .solo-food-items {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Toast container */
+.Toastify__toast-container {
+  width: 320px;
+}
+
+/* Add to cart container */
+.solo-add-to-cart-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.solo-item-quantity {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 50%;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.solo-add-to-cart {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.solo-add-to-cart:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+}
+
+.solo-search-button {
+  padding: 8px 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.solo-search-button:hover {
+  background-color: #45a049;
+}
+
+.solo-search-button i {
+  font-size: 14px;
+}
+
+/* Quantity Controls */
+.solo-quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.solo-quantity-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.solo-plus-btn {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.solo-minus-btn {
+  background-color: #f44336;
+  color: white;
+}
+
+.solo-quantity-btn:hover {
+  transform: scale(1.1);
+}
+
+.solo-item-quantity {
+  min-width: 20px;
+  text-align: center;
+  font-weight: bold;
+}
+
+
+/* Toast Notification Styles */
+.toast-confirm-button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  margin-top: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.toast-confirm-button:hover {
+  background-color: #45a049;
+}
+
+.Toastify__toast {
+  min-height: auto !important;
+}

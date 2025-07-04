@@ -1,0 +1,160 @@
+.past-orders-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 256px;
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+  border-radius: 50%;
+  height: 48px;
+  width: 48px;
+  border-top: 2px solid #f97316;
+  border-bottom: 2px solid #f97316;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.error-container {
+  background-color: #fee2e2;
+  border-left: 4px solid #ef4444;
+  color: #b91c1c;
+  padding: 16px;
+  margin: 16px 24px;
+}
+
+.error-button {
+  margin-top: 8px;
+  background-color: #ef4444;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.empty-orders {
+  text-align: center;
+  padding: 48px 0;
+}
+
+.empty-orders p {
+  font-size: 20px;
+  color: #4b5563;
+}
+
+/* Mobile Cards */
+.order-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+}
+
+.order-header span:first-child {
+  font-weight: 500;
+}
+
+.order-items {
+  margin-bottom: 12px;
+}
+
+.order-items h3 {
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.order-items-list {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.order-items-list li {
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+
+.order-details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.order-detail-label {
+  color: #6b7280;
+}
+
+/* Desktop Table */
+.orders-table {
+  width: 100%;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.table-header {
+  background-color: #1f2937;
+  color: white;
+}
+
+.table-header th {
+  text-align: left;
+  padding: 12px 16px;
+  font-size: 14px;
+}
+
+.table-row {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.table-row:hover {
+  background-color: #f9fafb;
+}
+
+.table-row td {
+  padding: 12px 16px;
+  font-size: 14px;
+}
+
+.table-items-list {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.table-items-list li {
+  font-size: 12px;
+  margin-bottom: 2px;
+}
+
+@media (max-width: 767px) {
+  .desktop-table {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .mobile-cards {
+    display: none;
+  }
+}
