@@ -52,7 +52,7 @@ const Login = () => {
       if(!response) alert('server down');
         
       localStorage.setItem('authorization', response.data.token);
-      alert(`Login successful!`);
+      
       navigate('/Foodcart');
       
     } catch (error) {
