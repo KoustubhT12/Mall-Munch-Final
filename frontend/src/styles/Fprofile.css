@@ -77,8 +77,6 @@
   flex: 1;
 }
 
-/* Add these to your existing Fprofile.css */
-
 .edit-field {
   flex: 1;
   display: flex;
@@ -145,283 +143,49 @@
   background-color: #d32f2f;
 }
 
-/* AddFood.css */
-
-/* Base Styles */
-.add-food-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+/* Mobile Logout Button */
+.mobile-logout-btn {
+  display: none;
+  margin-top: 30px;
 }
 
-h2 {
-  color: #2d3748;
-  margin-bottom: 1.5rem;
-  font-size: 1.8rem;
-  text-align: center;
-}
-
-/* Loading State */
-.loading {
-  text-align: center;
-  padding: 2rem;
-  font-size: 1.2rem;
-  color: #4a5568;
-}
-
-/* Button Styles */
-.add-new-btn {
-  background-color: #4299e1;
+.logout-btn {
+  background-color: #f44336;
   color: white;
   border: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.375rem;
-  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 4px;
   cursor: pointer;
-  transition: all 0.2s;
-  margin-bottom: 2rem;
-  display: block;
-  width: fit-content;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.add-new-btn:hover {
-  background-color: #3182ce;
-  transform: translateY(-1px);
-}
-
-/* Items List */
-.items-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
-}
-
-.item-card {
-  background: white;
-  border-radius: 0.5rem;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  padding: 1.5rem;
-  transition: transform 0.2s;
-}
-
-.item-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-}
-
-.item-info h3 {
-  font-size: 1.25rem;
-  color: #2d3748;
-  margin-bottom: 0.5rem;
-}
-
-.item-info p {
-  font-size: 1.1rem;
-  color: #4a5568;
-  margin-bottom: 0.5rem;
-}
-
-.veg-indicator {
-  display: inline-block;
-  padding: 0.25rem 0.5rem;
-  border-radius: 0.25rem;
-  font-size: 0.875rem;
-  font-weight: 600;
-}
-
-.veg-indicator.veg {
-  background-color: #c6f6d5;
-  color: #22543d;
-}
-
-.veg-indicator.non-veg {
-  background-color: #fed7d7;
-  color: #822727;
-}
-
-.item-actions {
-  display: flex;
-  gap: 0.75rem;
-  margin-top: 1rem;
-}
-
-.edit-btn, .delete-btn {
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 0.25rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.edit-btn {
-  background-color: #e2e8f0;
-  color: #2d3748;
-}
-
-.edit-btn:hover {
-  background-color: #cbd5e0;
-}
-
-.delete-btn {
-  background-color: #fed7d7;
-  color: #822727;
-}
-
-.delete-btn:hover {
-  background-color: #feb2b2;
-}
-
-/* Modal Styles */
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-}
-
-.edit-modal {
-  background: white;
-  border-radius: 0.5rem;
-  padding: 2rem;
-  width: 90%;
-  max-width: 500px;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-}
-
-.edit-modal h3 {
-  margin-top: 0;
-  margin-bottom: 1.5rem;
-  font-size: 1.5rem;
-  color: #2d3748;
-}
-
-.form-group {
-  margin-bottom: 1.25rem;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-weight: 500;
-  color: #4a5568;
-}
-
-.form-group input[type="text"],
-.form-group input[type="number"] {
+  font-size: 16px;
+  transition: background-color 0.3s;
   width: 100%;
-  padding: 0.75rem;
-  border: 1px solid #e2e8f0;
-  border-radius: 0.25rem;
-  font-size: 1rem;
 }
 
-.form-group input[type="text"]:focus,
-.form-group input[type="number"]:focus {
-  outline: none;
-  border-color: #4299e1;
-  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2);
-}
-
-.checkbox-group {
-  display: flex;
-  align-items: center;
-}
-
-.checkbox-group input {
-  margin-right: 0.5rem;
-}
-
-.modal-actions {
-  display: flex;
-  justify-content: flex-end;
-  gap: 0.75rem;
-  margin-top: 2rem;
-}
-
-.save-btn, .cancel-btn {
-  padding: 0.75rem 1.5rem;
-  border: none;
-  border-radius: 0.25rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.save-btn {
-  background-color: #4299e1;
-  color: white;
-}
-
-.save-btn:hover {
-  background-color: #3182ce;
-}
-
-.cancel-btn {
-  background-color: #e2e8f0;
-  color: #4a5568;
-}
-
-.cancel-btn:hover {
-  background-color: #cbd5e0;
-}
-
-/* Toast Styles */
-.Toastify__toast {
-  border-radius: 0.5rem !important;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
-}
-
-.Toastify__toast--success {
-  background-color: #f0fff4 !important;
-  color: #22543d !important;
-  border-left: 4px solid #38a169 !important;
-}
-
-.Toastify__toast--success .Toastify__toast-icon svg {
-  fill: #38a169 !important;
-}
-
-.Toastify__toast--error {
-  background-color: #fff5f5 !important;
-  color: #822727 !important;
-  border-left: 4px solid #e53e3e !important;
-}
-
-.Toastify__toast--error .Toastify__toast-icon svg {
-  fill: #e53e3e !important;
-}
-
-.Toastify__progress-bar--success {
-  background: #38a169 !important;
-}
-
-.Toastify__progress-bar--error {
-  background: #e53e3e !important;
+.logout-btn:hover {
+  background-color: #d32f2f;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .add-food-container {
-    padding: 1rem;
+  .mobile-logout-btn {
+    display: block;
   }
   
-  .items-list {
-    grid-template-columns: 1fr;
+  .info-item {
+    flex-direction: column;
   }
   
-  .edit-modal {
-    width: 95%;
-    padding: 1.5rem;
+  .info-label {
+    width: 100%;
+    margin-bottom: 5px;
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+  }
+  
+  .edit-btn, .save-btn, .cancel-btn {
+    width: 100%;
+    margin-bottom: 10px;
   }
 }

@@ -141,15 +141,18 @@ const Fprofile = () => {
     }
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem('authorization');
+    navigate('/FoodcartLogin');
+    toast.success('Logged out successfully');
+  };
+
   const extractPublicId = (url) => {
     if (!url) return null;
     try {
-      // Remove version number if present (v1234567/)
       const withoutVersion = url.replace(/\/v\d+\//, '/');
       const parts = withoutVersion.split('/');
-      // Get the last part (filename without extension)
       const filename = parts[parts.length - 1];
-      // Remove file extension
       return filename.split('.')[0];
     } catch (e) {
       console.error("Error parsing URL:", e);
@@ -169,10 +172,8 @@ const Fprofile = () => {
         return;
       }
 
-      // Show uploading toast
       const toastId = toast.loading('Uploading image...');
 
-      // 1. First delete old image if exists
       if (foodcartData.image) {
         const oldPublicId = extractPublicId(foodcartData.image);
         if (oldPublicId) {
@@ -189,12 +190,10 @@ const Fprofile = () => {
             );
           } catch (deleteError) {
             console.error('Error deleting old image:', deleteError);
-            // Continue with upload even if delete fails
           }
         }
       }
 
-      // 2. Upload new image
       const uploadForm = new FormData();
       uploadForm.append('file', file);
       uploadForm.append('upload_preset', 'foodcart_covers');
@@ -204,7 +203,6 @@ const Fprofile = () => {
         uploadForm
       );
 
-      // 3. Update backend with new image URL
       await axios.put(
         'https://mall-munch-backend.onrender.com/foodcart/update-image',
         { image: cloudinaryResponse.data.secure_url },
@@ -216,7 +214,6 @@ const Fprofile = () => {
         }
       );
 
-      // 4. Refetch profile to get updated data
       await fetchProfile();
       
       toast.update(toastId, {
@@ -330,6 +327,12 @@ const Fprofile = () => {
         ) : (
           <button onClick={handleEditToggle} className="edit-btn">Edit Profile</button>
         )}
+      </div>
+
+      <div className="mobile-logout-btn">
+        <button onClick={handleLogout} className="logout-btn">
+          Logout
+        </button>
       </div>
     </div>
   );
