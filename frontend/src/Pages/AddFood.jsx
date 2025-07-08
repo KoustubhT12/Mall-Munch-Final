@@ -232,7 +232,7 @@ const AddFood = () => {
           <div key={item._id} className="item-card">
             <div className="item-info">
               <h3>{item.name}</h3>
-              <p>${item.price.toFixed(2)}</p>
+              <p>{item.price.toFixed(2)} Rs</p>
               <span className={`veg-indicator ${item.veg ? 'veg' : 'non-veg'}`}>
                 {item.veg ? 'Veg' : 'Non-Veg'}
               </span>
