@@ -24,6 +24,7 @@ function App() {
     <Router>
       <ToastContainer />
       <Routes>
+        <Route path="*" element={<Navigate to="/" replace />} />
         <Route path="/" element={<Landing/>} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
