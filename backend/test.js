@@ -1,11 +1,3 @@
-import bcrypt from "bcryptjs";
+// all the testing files go  here 
 
-
-
-const salt = 10;
-
-
-
-const hashed = await bcrypt.hash('8975430891',salt);
-
-console.log(hashed)
+// currently removed .
