@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { FiArrowLeft } from 'react-icons/fi';
 import '../styles/Flogin.css';
 
 const FoodCartLogin = () => {
@@ -110,6 +111,13 @@ const FoodCartLogin = () => {
 
   return (
     <div className="login-container">
+         <button 
+        onClick={() => navigate('/')}
+        className="back-button"
+        aria-label="Go back to home"
+      >
+        <FiArrowLeft className="arrow-icon" />
+      </button>
       <div className="login-card">
         <div className="login-header">
           <h1 className="login-title">Welcome to Mall Munch</h1>

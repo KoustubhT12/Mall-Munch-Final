@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { FiArrowLeft } from 'react-icons/fi';
 import '../styles/Fregister.css';
 
 const FoodCartRegister = () => {
@@ -146,6 +147,13 @@ const FoodCartRegister = () => {
 
   return (
     <div className="register-container">
+       <button 
+              onClick={() => navigate('/')}
+              className="back-button"
+              aria-label="Go back to home"
+            >
+              <FiArrowLeft className="arrow-icon" />
+            </button>
       <div className="register-form-container">
         <div className="register-header">
           <h1 className="register-title">Welcome to Mall Munch</h1>

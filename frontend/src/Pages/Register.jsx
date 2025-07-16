@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { FiEye, FiEyeOff } from 'react-icons/fi';
+import { FiEye, FiEyeOff, FiArrowLeft } from 'react-icons/fi';
 import '../styles/register.css';
 
 const Register = () => {
@@ -167,6 +167,15 @@ const Register = () => {
 
   return (
     <div className="register-screen">
+      {/* Added back arrow button */}
+      <button 
+        onClick={() => navigate('/')}
+        className="back-button"
+        aria-label="Go back to home"
+      >
+        <FiArrowLeft size={20} />
+      </button>
+      
       <div className="register-card">
         <div className="register-header">
           <h1 className="register-app-title">Welcome to Mall Munch</h1>

@@ -10,6 +10,130 @@
   padding: 1rem;
 }
 
+/* Back Button - Mobile Responsive */
+.back-button {
+  position: fixed; /* Changed from absolute to fixed for better mobile behavior */
+  top: 1rem;
+  left: 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  z-index: 100; /* Increased z-index to ensure it stays on top */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+  backdrop-filter: blur(2px); /* Frosted glass effect */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+  .back-button {
+    top: 0.5rem;
+    left: 0.5rem;
+    padding: 0.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .back-button {
+    top: 0.5rem;
+    left: 0.5rem;
+    padding: 0.3rem;
+  }
+}
+
+/* Hover and active states */
+.back-button:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  transform: translateX(-2px);
+}
+
+.back-button:active {
+  transform: scale(0.95);
+}
+
+/* Register Screen Container */
+.register-screen {
+  position: relative;
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+}
+
+/* Responsive adjustments for register card */
+.register-card {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+@media (max-width: 768px) {
+  .register-card {
+    padding: 1.5rem;
+    margin: 1rem auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .register-card {
+    padding: 1rem;
+    margin: 0.5rem auto;
+    border-radius: 0;
+  }
+  
+  .register-screen {
+    padding: 1rem 0.5rem;
+  }
+}
+
+/* Form field adjustments for mobile */
+.form-field {
+  margin-bottom: 1.2rem;
+}
+
+@media (max-width: 480px) {
+  .form-field {
+    margin-bottom: 1rem;
+  }
+  
+  .input-label {
+    font-size: 0.9rem;
+  }
+  
+  .text-input {
+    padding: 0.8rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Button adjustments */
+.submit-button {
+  padding: 1rem;
+  font-size: 1rem;
+}
+
+@media (max-width: 480px) {
+  .submit-button {
+    padding: 0.8rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Password toggle button */
+.password-toggle {
+  padding: 0.5rem;
+}
+
+@media (max-width: 480px) {
+  .password-toggle {
+    padding: 0.3rem;
+  }
+}
 .register-box {
   background-color: white;
   padding: 1.5rem 2rem;

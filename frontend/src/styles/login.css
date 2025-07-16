@@ -153,3 +153,71 @@
     font-size: 0.875rem;
   }
 }
+
+/* Home Button Styles */
+.home-button {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  background-color: aliceblue;
+}
+
+.home-button:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.home-button:active {
+  transform: scale(0.95);
+}
+
+.arrow-icon {
+  font-size: 1.5rem;
+  color: #000000cf;
+  transition: all 0.2s ease;
+}
+
+.home-button:hover .arrow-icon {
+  color: #ffffff;
+  transform: translateX(-2px);
+}
+
+/* Accessibility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Loading Spinner */
+.spinner {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s ease-in-out infinite;
+  margin-right: 0.5rem;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
