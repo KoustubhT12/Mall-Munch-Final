@@ -183,7 +183,7 @@
 
 .arrow-icon {
   font-size: 1.5rem;
-  color: #000000cf;
+  color: #000000;
   transition: all 0.2s ease;
 }
 
@@ -208,13 +208,16 @@
 /* Loading Spinner */
 .spinner {
   display: inline-block;
-  width: 1rem;
-  height: 1rem;
-  border: 2px solid rgb(255, 255, 255);
+  width: 14px;       /* Fixed small size */
+  height: 14px;      /* Fixed small size */
+  border: 2px solid rgba(255, 255, 255, 0.3);
   border-radius: 50%;
   border-top-color: white;
-  animation: spin 1s ease-in-out infinite;
-  margin-right: 0.5rem;
+  animation: spin 1s linear infinite;
+  vertical-align: middle;  /* Perfect vertical alignment */
+  margin-right: 8px;       /* Reduced spacing */
+  line-height: 1;          /* Prevents height increase */
+  box-sizing: border-box;  /* Border included in dimensions */
 }
 
 @keyframes spin {

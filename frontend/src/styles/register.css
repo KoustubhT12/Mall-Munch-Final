@@ -395,14 +395,17 @@
 }
 
 .spinner {
-  width: 1rem;
-  height: 1rem;
+  display: inline-block;
+  width: 14px;
+  height: 14px;
   border: 2px solid rgba(255, 255, 255, 0.3);
   border-radius: 50%;
   border-top-color: white;
-  animation: spin 1s ease-in-out infinite;
+  animation: spin 1s linear infinite;
+  margin-right: 6px;
+  vertical-align: text-bottom; /* Matches text baseline */
+  transform: translateY(-1px); /* Fine-tune vertical position */
 }
-
 /* ===== Footer Links ===== */
 .auth-redirect {
   text-align: center;
