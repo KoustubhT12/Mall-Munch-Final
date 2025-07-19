@@ -86,7 +86,7 @@ mall.get("/foodcarts",middleware, async (req, res) => {
         count: items.length
       }
 
-      redisClient.setEx(key,3600, JSON.stringify(response));
+      await redisClient.setEx(key,3600, JSON.stringify(response));
       return res.status(200).json(response);
   
     } catch (error) {
