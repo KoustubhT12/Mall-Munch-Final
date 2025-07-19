@@ -7,7 +7,7 @@ import Item from '../model/Item.js'
 const mall = Router()
 import User from '../model/User.js'
 import mongoose from 'mongoose'
-
+import redisClient from '../config/RedisConfig.js'
 
 // a get response to check the server health  - - - -> 
 mall.get("/",async(req,res)=>{
@@ -20,11 +20,20 @@ mall.get("/",async(req,res)=>{
 
 
 
+
 // fetch all the food carts and show it to the user 
-mall.get("/foodcarts", middleware, async (req, res) => {
+mall.get("/foodcarts",middleware, async (req, res) => {
     try {
+      const Rfoodcarts = await redisClient.get('foodcarts');
+      if (Rfoodcarts){
+        return res.status(200).json(JSON.parse(Rfoodcarts));
+      }
+
       const foodcarts = await FoodCart.find();
-      res.status(200).json(foodcarts);  
+
+      redisClient.set('foodcarts', JSON.stringify(foodcarts), {
+        EX: 3600 });
+      res.status(200).json(foodcarts); 
     } catch (e) {
       console.error("Error fetching food carts:", e);  
       res.status(500).json({ error: "Failed to fetch food carts" });  
@@ -41,12 +50,25 @@ mall.get("/foodcarts", middleware, async (req, res) => {
       if (!mongoose.Types.ObjectId.isValid(id)) {
         return res.status(400).json({ error: "Invalid ID format" });
       }
-  
+    
+      // for redis create a new unique key 
+
+
+      const key = `foodcart:${id}:items`;
+
+      const cached_data = redisClient.get(key);
+
+      if(cached_data){
+        return res.status(200).json(JSON.parse(cached_data));
+      }
+
       // Fetch both items and food cart name in parallel
       const [items, foodcartName] = await Promise.all([
         Item.find({ Belongsto: id }),
         FoodCart.findById(id).select('Fname').then(foodcart => foodcart ? foodcart.Fname : null)
       ]);
+
+
       
       if (!items || items.length === 0) {
         return res.status(404).json({ message: "No items found" });
@@ -57,12 +79,15 @@ mall.get("/foodcarts", middleware, async (req, res) => {
       }
   
       // Return data with food cart name included
-      return res.json({
+      const response ={
         success: true,
         foodCartName: foodcartName, // Directly use the name
         items: items,
         count: items.length
-      });
+      }
+
+      redisClient.setEx(key,3600, JSON.stringify(response));
+      return res.status(200).json(response);
   
     } catch (error) {
       console.error("Error fetching items:", error);

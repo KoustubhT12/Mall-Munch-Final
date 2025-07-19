@@ -354,7 +354,38 @@ route.post("/updatepic",middleware,async(req,res)=>{
   }
 });
 
+// email checking if it exists so that we can verify before sending the OTP : 
+
+ /*
+route.post("/emailcheck", async (req, res) => {
+
+const email = req.body.email;
+if (!email) {
+    return res.status(400).json({ message: "Email is required" }); 
+}
+if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    return res.status(400).json({ message: "Invalid email format" });
+}
+
+try{
+
+  const checker = await User.findOne({
+    email: email
+  });
+
+  if(!checker){
+    return res.status(404).json({ message: "Email not registered" });
+  }
+
+  
+}
 
 
+catch(error){
+  console.error("Error checking email:", error);
+  return res.status(500).json({ message: "Internal server error" });
+}
+})
 
+*/
 export default route
