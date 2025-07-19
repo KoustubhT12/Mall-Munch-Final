@@ -56,7 +56,7 @@ mall.get("/foodcarts",middleware, async (req, res) => {
 
       const key = `foodcart:${id}:items`;
 
-      const cached_data = redisClient.get(key);
+      const cached_data = await redisClient.get(key);
 
       if(cached_data){
         return res.status(200).json(JSON.parse(cached_data));
