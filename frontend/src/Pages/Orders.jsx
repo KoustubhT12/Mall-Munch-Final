@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { io } from 'socket.io-client'; // 👈 Import socket client
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import "../styles/Orders.css";
+import jwt_decode from 'jwt-decode';
+
+
+const socket = io('https://mall-munch-backend.onrender.com'); // 👈 Your backend origin (no /mall)
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
@@ -43,47 +48,37 @@ const Orders = () => {
       setLoading(false);
     }
   };
-const handleRateOrder = async (orderId, rating) => {
-  try {
-    const token = localStorage.getItem('authorization');
-    if (!token) return navigate('/login');
 
-    console.log('Submitting rating for order:', orderId, 'Rating:', rating);
-    
-    const response = await axios.post(
-      `https://mall-munch-backend.onrender.com/user/${orderId}/rate`,
-      { rating },
-      {
-        headers: {
-          'Authorization': `Bearer ${token}`,
-          'Content-Type': 'application/json'
+  const handleRateOrder = async (orderId, rating) => {
+    try {
+      const token = localStorage.getItem('authorization');
+      if (!token) return navigate('/login');
+
+      const response = await axios.post(
+        `https://mall-munch-backend.onrender.com/user/${orderId}/rate`,
+        { rating },
+        {
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+          }
         }
-      }
-    );
+      );
 
-    console.log('Rating response:', response.data);
-    
-    if (response.data && response.data._id) {
-      setOrders(orders.map(order => 
-        order._id === response.data._id ? response.data : order
-      ));
-      toast.success('Rating submitted successfully!');
-      
-      // Optional: Refetch orders to ensure complete sync
-      await fetchOrders();
-    } else {
-      throw new Error('Invalid response from server');
+      if (response.data && response.data._id) {
+        setOrders(orders.map(order => 
+          order._id === response.data._id ? response.data : order
+        ));
+        toast.success('Rating submitted successfully!');
+        await fetchOrders(); 
+      } else {
+        throw new Error('Invalid response from server');
+      }
+    } catch (err) {
+      const msg = err.response?.data?.message || err.message || 'Failed to submit rating';
+      toast.error(msg);
     }
-  } catch (err) {
-    console.error('Full rating error:', err);
-    console.error('Error response:', err.response?.data);
-    
-    const msg = err.response?.data?.message || 
-               err.message || 
-               'Failed to submit rating';
-    toast.error(msg);
-  }
-};
+  };
 
   const formatDate = (dateString) => {
     return new Date(dateString).toLocaleDateString('en-US', {
@@ -100,15 +95,40 @@ const handleRateOrder = async (orderId, rating) => {
   };
 
   useEffect(() => {
-    fetchOrders();
-  }, []);
+  fetchOrders();
+
+  const token = localStorage.getItem('authorization');
+  if (!token) return;
+
+  try {
+    const decoded = jwt_decode(token);
+    const userId = decoded?.userId; // Adjust the key based on your JWT payload
+
+    if (userId) {
+      socket.emit('register', userId);
+    }
+  } catch (err) {
+    console.error('Failed to decode token:', err);
+  }
+
+
+  socket.on('order-status-updated', ({ orderId, newStatus }) => {
+    toast.info(`Order #${orderId.slice(-6).toUpperCase()} is now ${newStatus.toUpperCase()}`);
+    fetchOrders(); 
+  });
+
+  return () => {
+    socket.off('order-status-updated');
+  };
+}, []);
+
 
   if (loading) return <div className="loading">Loading your orders...</div>;
   if (error) return <div className="error">Error: {error}</div>;
 
   return (
     <div className="orders-container">
-      <ToastContainer position="top-right" autoClose={3000}  />
+      <ToastContainer position="top-right" autoClose={3000} />
       <h1>Your Orders</h1>
 
       {orders.length === 0 ? (
@@ -132,7 +152,6 @@ const handleRateOrder = async (orderId, rating) => {
 
               <div className="order-details">
                 <div className="restaurant">From: {order.foodcart}</div>
-                
                 <div className="items-list">
                   {order.items.map((item, i) => (
                     <div key={i} className="item">

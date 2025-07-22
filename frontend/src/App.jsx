@@ -18,6 +18,8 @@ import PastOrders from './Pages/PastOrders.jsx';
 import Fprofile from './Pages/Fprofile.jsx';
 import AddFood from './Pages/AddFood.jsx';
 import Landing from './Pages/Landing.jsx'
+import ForgotPassword from './Pages/ForgotPassword.jsx';
+
 import '../src/index.css'
 function App() {
   return (
@@ -30,6 +32,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/FoodcartRegister" element={<FoodCartRegister />} />
         <Route path="/FoodcartLogin" element={<FoodCartLogin />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
 
         <Route path="/Foodcart" element={<Foodcarts />}>
           <Route index element={<FoodcartsContent />} />
