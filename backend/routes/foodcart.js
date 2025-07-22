@@ -98,8 +98,14 @@ foodcart.get("/getcurrentorders", middleware, async (req, res) => {
 foodcart.put("/updateorderstatus/:orderId", middleware, async (req, res) => {
     const id = req.params.orderId;
     const { status } = req.body;
+    
+    // get the user id for socket --- > 
+    const userId = req.user.id;
+    const connectedUsers = req.connectedUsers;
 
-    const updatedOrder = await Order.findByIdAndUpdate(
+    const socketId = connectedUsers.get(userId);
+
+     const updatedOrder = await Order.findByIdAndUpdate(
         id,
         { $set: { order_status: status } },
         { new: true }
@@ -108,6 +114,15 @@ foodcart.put("/updateorderstatus/:orderId", middleware, async (req, res) => {
     if (!updatedOrder) {
         return res.status(404).json({ message: "Order not found" });
     }
+
+    if (socketId) {
+    io.to(socketId).emit('order-status-updated', { id, newStatus : updatedOrder.order_status });
+    console.log(`Notified user ${userId}`);
+  } else {
+    console.log(`User ${userId} not connected`);
+  }
+
+   
 
     return res.status(200).json({ message: "Order status changed!" });
 });
